@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Rimborsi">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <title>Rimborsi Spese</title>
+
+  <style>
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:-apple-system, system-ui, Segoe UI, Roboto, Arial;
+      background:#F2F2F7;
+    }
+    .box{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#111;
+      font-size:16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">Apertura app…</div>
+
+  <script>
+    const TARGET = "https://script.google.com/macros/s/AKfycbxOj3xb7VdzY2hveXcLDSswMvdDEK4L7qnpzmwWCz9LA_4h-3mUdMLImIOCfGxLJQ2pZg/exec";
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
+    }
+
+    // Redirect verso la web app reale
+    window.location.replace(TARGET);
+  </script>
+</body>
+</html>
